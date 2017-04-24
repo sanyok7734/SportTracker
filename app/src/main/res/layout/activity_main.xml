@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.test.sporttracker.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/imageDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_today" />
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:hint="Date"
+        android:textColor="#000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageDate"
+        app:layout_constraintLeft_toRightOf="@+id/imageDate"
+        app:layout_constraintTop_toTopOf="@+id/imageDate" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Упражнения"
+        app:layout_constraintTop_toBottomOf="@+id/imageDate"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:entries="@array/exercises"
+        android:layout_marginStart="8dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hintWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:passwordToggleContentDescription="description"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:nextFocusUp="@id/hintWeight"
+        android:nextFocusLeft="@id/hintWeight">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Вес"
+            android:inputType="numberDecimal"
+            android:nextFocusUp="@id/weight"
+            android:nextFocusLeft="@id/weight"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hintApproaches"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:passwordToggleContentDescription="description"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/hintWeight"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:nextFocusUp="@id/hintApproaches"
+        android:nextFocusLeft="@id/hintApproaches">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/approachest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Подходы"
+            android:inputType="number"
+            android:nextFocusUp="@id/approachest"
+            android:nextFocusLeft="@id/approachest"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hintRepetitions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:passwordToggleContentDescription="description"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/hintApproaches"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:nextFocusUp="@id/hintRepetitions"
+        android:nextFocusLeft="@id/hintRepetitions">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/repetitions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Повторения"
+            android:inputType="number"
+            android:nextFocusUp="@id/repetitions"
+            android:nextFocusLeft="@id/repetitions"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Записать"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hintRepetitions" />
+
+</android.support.constraint.ConstraintLayout>

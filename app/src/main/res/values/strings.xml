@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Сорокин</string>
+
+    <string-array name="exercises">
+        <item>Протяжка рывковая</item>
+        <item>Рывок классический</item>
+        <item>Трастер</item>
+        <item>Тяга в наклоне</item>
+    </string-array>
+</resources>
