@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.realm.Realm;
-import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         textDate.setText(date);
 
         clearFocus();
-
-        Exercise exercise = findExercise(date);
+        clearData();
+       /* Exercise exercise = findExercise(date);
         if (exercise != null) {
             setData(exercise);
         } else {
             clearData();
-        }
+        }*/
     }
 
     private void setData(Exercise exercise) {
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     @OnClick(R.id.record)
     public void setRecord() {
         realm.beginTransaction();
-        Exercise findExercise = findExercise(textDate.getText().toString());
-        Exercise exercise = findExercise == null ? realm.createObject(Exercise.class) : findExercise;
+        //Exercise findExercise = findExercise(textDate.getText().toString());
+        Exercise exercise = realm.createObject(Exercise.class);
         exercise.setDate(textDate.getText().toString());
         exercise.setName(spinner.getSelectedItemPosition());
         exercise.setWeight(Double.parseDouble(weight.getText().toString()));
@@ -99,12 +99,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         realm.commitTransaction();
 
         Toast.makeText(this, "Записано", Toast.LENGTH_SHORT).show();
+        clearData();
+        clearFocus();
     }
 
-    private Exercise findExercise(String date) {
-        RealmQuery<Exercise> where = realm.where(Exercise.class);
-        Exercise exercise = where.equalTo("date", date).findFirst();
-        return exercise;
+    private int findExercise() {
+        RealmResults<Exercise> where = realm.where(Exercise.class).findAll();
+        return where.size();
     }
 
     @Override
